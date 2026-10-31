@@ -12,3 +12,11 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /signup
+Disallow: /select-clinic
+Disallow: /result
+Disallow: /dashboard
+Disallow: /clinic/
+Disallow: /admin/
+
+Sitemap: https://clinexus.com.ng/sitemap.xml

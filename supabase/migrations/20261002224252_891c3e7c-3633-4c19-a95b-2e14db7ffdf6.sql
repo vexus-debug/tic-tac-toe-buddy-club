@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.consume_plan_item_materials() FROM PUBLIC, anon, authenticated;

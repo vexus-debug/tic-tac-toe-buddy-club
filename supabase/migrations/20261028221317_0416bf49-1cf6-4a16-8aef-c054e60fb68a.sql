@@ -1,0 +1,1 @@
+ALTER TABLE public.treatment_plan_items ADD COLUMN IF NOT EXISTS surfaces text, ADD COLUMN IF NOT EXISTS cdt_code text;

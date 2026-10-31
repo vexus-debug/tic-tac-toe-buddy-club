@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.charge_on_reschedule(), public.charge_child_item(), public.lock_patient_identity(), public.lock_clinic_type() FROM PUBLIC, anon, authenticated;

@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.guard_locked_production() FROM PUBLIC, anon, authenticated;

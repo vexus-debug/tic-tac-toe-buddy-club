@@ -1,0 +1,10 @@
+REVOKE EXECUTE ON FUNCTION public.create_org_for_new_user(uuid, text, text, clinic_type) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.get_org_role(uuid, uuid) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.has_org_access(uuid, uuid) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.has_role(uuid, platform_role) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.is_super_admin(uuid) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.next_lab_serial(uuid, text, text) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.handle_new_user() FROM anon, authenticated;
+REVOKE EXECUTE ON FUNCTION public.seed_allocation_rules_for_org() FROM anon, authenticated;
+REVOKE EXECUTE ON FUNCTION public.update_updated_at() FROM anon, authenticated;
+REVOKE EXECUTE ON FUNCTION public.update_offline_dental_history_updated_at() FROM anon, authenticated;

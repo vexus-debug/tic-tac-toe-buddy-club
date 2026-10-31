@@ -1,0 +1,2 @@
+ALTER TABLE public.treatment_estimates ADD COLUMN IF NOT EXISTS treatment_plan_id uuid REFERENCES public.treatment_plans(id) ON DELETE SET NULL;
+CREATE INDEX IF NOT EXISTS idx_treatment_estimates_plan ON public.treatment_estimates(treatment_plan_id);

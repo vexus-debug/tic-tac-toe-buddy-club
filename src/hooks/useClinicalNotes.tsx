@@ -1,0 +1,83 @@
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+import { toast } from "@/hooks/use-toast";
+import { useOrg } from "@/hooks/useOrg";
+
+export function useClinicalNotes(patientId?: string) {
+  const { currentOrg } = useOrg();
+  const orgId = currentOrg?.org_id;
+  return useQuery({
+    queryKey: ["clinical_notes", patientId, orgId],
+    enabled: !!patientId && !!orgId,
+    queryFn: async () => {
+      const { data, error } = await (supabase as any)
+        .from("clinical_notes")
+        .select("*, appointments(appointment_date, appointment_time)")
+        .eq("org_id", orgId)
+        .eq("patient_id", patientId!)
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return data || [];
+    },
+  });
+}
+
+export function useClinicalNotesByAppointment(appointmentId?: string) {
+  const { currentOrg } = useOrg();
+  const orgId = currentOrg?.org_id;
+  return useQuery({
+    queryKey: ["clinical_notes", "appointment", appointmentId, orgId],
+    enabled: !!appointmentId && !!orgId,
+    queryFn: async () => {
+      const { data, error } = await (supabase as any)
+        .from("clinical_notes")
+        .select("*")
+        .eq("org_id", orgId)
+        .eq("appointment_id", appointmentId!)
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return data || [];
+    },
+  });
+}
+
+export function useCreateClinicalNote() {
+  const qc = useQueryClient();
+  const { currentOrg } = useOrg();
+  return useMutation({
+    mutationFn: async (note: {
+      patient_id: string;
+      appointment_id?: string;
+      subjective?: string;
+      objective?: string;
+      assessment?: string;
+      plan?: string;
+      created_by?: string;
+    }) => {
+      const { data, error } = await (supabase as any).from("clinical_notes").insert({ ...note, org_id: currentOrg?.org_id }).select().single();
+      if (error) throw error;
+      return data;
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["clinical_notes"] });
+      toast({ title: "Clinical note saved" });
+    },
+    onError: (e: any) => toast({ title: "Error", description: e.message, variant: "destructive" }),
+  });
+}
+
+export function useUpdateClinicalNote() {
+  const qc = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ id, ...updates }: { id: string; subjective?: string; objective?: string; assessment?: string; plan?: string }) => {
+      const { data, error } = await (supabase as any).from("clinical_notes").update(updates).eq("id", id).select().single();
+      if (error) throw error;
+      return data;
+    },
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["clinical_notes"] });
+      toast({ title: "Clinical note updated" });
+    },
+    onError: (e: any) => toast({ title: "Error", description: e.message, variant: "destructive" }),
+  });
+}

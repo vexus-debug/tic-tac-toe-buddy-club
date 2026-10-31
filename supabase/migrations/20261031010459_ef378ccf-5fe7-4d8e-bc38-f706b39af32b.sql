@@ -1,0 +1,1 @@
+ALTER TABLE public.lab_cases ADD COLUMN IF NOT EXISTS shade_map jsonb NOT NULL DEFAULT '{}'::jsonb;
