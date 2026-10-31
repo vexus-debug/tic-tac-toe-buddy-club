@@ -91,6 +91,7 @@ import { MainClinicOnly } from "@/components/dashboard/MainClinicOnly";
 // Dental lab
 import LabRegisterPage from "./pages/dashboard/dlab/LabRegisterPage";
 import DlabQcPage from "./pages/dashboard/dlab/DlabQcPage";
+import DlabOutsourcingPage from "./pages/dashboard/dlab/DlabOutsourcingPage";
 import DlabBenchPage from "./pages/dashboard/dlab/DlabBenchPage";
 import DlabWarrantiesPage from "./pages/dashboard/dlab/DlabWarrantiesPage";
 import DlabCasesPage from "./pages/dashboard/dlab/DlabCasesPage";
@@ -370,6 +371,9 @@ const App = () => (
               <Route path="dlab/cam" element={<DlabCamPage />} />
               <Route path="dlab/reports" element={<DlabReportsPage />} />
               <Route path="dlab/r/qc" element={<DlabQcPage />} />
+              <Route path="dlab/outsourcing" element={<DlabOutsourcingPage />} />
+              <Route path="dlab/r/external-labs" element={<DlabOutsourcingPage key="directory" defaultTab="directory" />} />
+              <Route path="dlab/r/lab-payments" element={<DlabOutsourcingPage key="payables" defaultTab="payables" />} />
               <Route path="dlab/r/warranties" element={<DlabWarrantiesPage />} />
               <Route path="dlab/r/:kind" element={<LabRegisterPage />} />
 

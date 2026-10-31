@@ -314,6 +314,7 @@ const dentalLabNav: NavGroup[] = [
     { title: "Warranties & Remakes", path: "dlab/r/warranties", icon: Shield },
   ] },
   { label: "Outsourcing", items: [
+    { title: "Outsourcing Hub", path: "dlab/outsourcing", icon: Truck },
     { title: "External Labs", path: "dlab/r/external-labs", icon: Link2 },
     { title: "Lab Payments", path: "dlab/r/lab-payments", icon: CreditCard },
   ] },

@@ -13,6 +13,19 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    version: "v2.46.0",
+    date: "October 31, 2026",
+    title: "Dental lab Outsourcing Command Center",
+    kind: "feature",
+    items: [
+      { kind: "feature", text: "Send a case to a partner lab with service, tracking number and an expected return date worked out from the partner's turnaround (weekends skipped)." },
+      { kind: "feature", text: "Active dispatches list with due/overdue countdowns, status updates (in transit, at vendor, cancelled) and partner filter." },
+      { kind: "feature", text: "Receiving & QC station: 4-point inspection on arrival; failed work goes back to the partner as a remake or is fixed in-house." },
+      { kind: "feature", text: "Partner directory shows on-time delivery and remake rate over 90 days, plus cases currently out." },
+      { kind: "feature", text: "Bills & payables: log partner invoices and payments and see what you owe each lab. Passing inspection can log the partner's invoice automatically." },
+    ],
+  },
+  {
     version: "v2.45.0",
     date: "October 31, 2026",
     title: "New dental lab home: Production Command Center",
