@@ -1,0 +1,3 @@
+CREATE POLICY "Lab members read case files" ON storage.objects FOR SELECT TO authenticated USING (bucket_id='lab-case-files' AND public.has_org_access(auth.uid(), ((storage.foldername(name))[1])::uuid));
+CREATE POLICY "Lab members upload case files" ON storage.objects FOR INSERT TO authenticated WITH CHECK (bucket_id='lab-case-files' AND public.has_org_access(auth.uid(), ((storage.foldername(name))[1])::uuid));
+CREATE POLICY "Lab members delete case files" ON storage.objects FOR DELETE TO authenticated USING (bucket_id='lab-case-files' AND public.has_org_access(auth.uid(), ((storage.foldername(name))[1])::uuid));

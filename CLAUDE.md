@@ -1,0 +1,1 @@
+Read and follow `AGENTS.md` (project rules) and `skills/README.md` (mandatory skills). Before any task matching a skill, read that skill's `skills/<name>/SKILL.md` in full plus the references it routes to, and follow its workflow exactly.

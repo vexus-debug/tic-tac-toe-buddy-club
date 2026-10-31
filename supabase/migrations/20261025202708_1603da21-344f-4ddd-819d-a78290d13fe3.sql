@@ -1,0 +1,1 @@
+ALTER TABLE public.blog_autopilot ADD COLUMN cron_token text NOT NULL DEFAULT encode(extensions.gen_random_bytes(24), 'hex');

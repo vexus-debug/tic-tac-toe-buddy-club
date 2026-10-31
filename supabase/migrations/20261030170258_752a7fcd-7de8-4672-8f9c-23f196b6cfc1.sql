@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.log_lab_case_status() FROM PUBLIC, anon, authenticated;

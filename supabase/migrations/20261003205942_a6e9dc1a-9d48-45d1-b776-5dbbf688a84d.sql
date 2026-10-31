@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.create_visit_invoice(uuid, uuid, jsonb, uuid[], text) FROM PUBLIC, anon;

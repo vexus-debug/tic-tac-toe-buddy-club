@@ -1,0 +1,1 @@
+ALTER TABLE public.treatments ADD COLUMN IF NOT EXISTS cdt_code text, ADD COLUMN IF NOT EXISTS patient_name text, ADD COLUMN IF NOT EXISTS site_scope text NOT NULL DEFAULT 'tooth';
