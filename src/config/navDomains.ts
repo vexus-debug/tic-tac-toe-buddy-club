@@ -188,8 +188,9 @@ export const DENTAL_LAB_HUBS: HubDomain[] = [
     key: "outsourcing",
     title: "Outsourcing",
     icon: Link2,
-    primaryPath: "dlab/r/external-labs",
+    primaryPath: "dlab/outsourcing",
     tabs: [
+      { title: "Command Center", path: "dlab/outsourcing" },
       { title: "External Labs", path: "dlab/r/external-labs" },
       { title: "Lab Payments", path: "dlab/r/lab-payments" },
     ],
